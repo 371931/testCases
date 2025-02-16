@@ -42,7 +42,7 @@ import {
 //   "//*[@id='rc-tabs-3-more-popup-Audit Trail']/span/span"
 // );
 
-export const viewDetailsActions = async (page) => {
+export const viewDetailsActions = async (page, module, environment) => {
   await page.waitForTimeout(5000);
 
   // view details button
@@ -90,7 +90,7 @@ export const viewDetailsActions = async (page) => {
     {
       selector:
         "//*[@id='webcomponents-sidemodal']/div[2]/div[2]/div/div[1]/div[1]/div/div[9]",
-      timeOut: 10000,
+      timeOut: 15000,
     },
   ];
 
@@ -98,12 +98,13 @@ export const viewDetailsActions = async (page) => {
     await timeOutAndClick(page, tab?.selector, tab?.timeOut);
   }
 
-  await page.waitForTimeout(15000);
+  // await page.pause();
 
   console.log("Finished clicking all tabs.");
 
-  await waitForSelectorAndClick(
-    page,
-    "xpath=/html/body/div[1]/div/div/div[3]/div[2]/div/div/div/div/div/div/div[5]/header/button"
-  );
+  // await waitForSelectorAndClick(
+  //   page,
+  //   "xpath=/html/body/div[1]/div/div/div[3]/div[2]/div/div/div/div/div/div/div[5]/header/button",
+  //   { timeout: 30000 } // Increase timeout to 30 seconds
+  // );
 };

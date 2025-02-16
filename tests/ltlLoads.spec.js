@@ -11,16 +11,15 @@ const { viewDetailsActions } = require("./cases/loadManagement/viewDetails");
 test("Create, Edit, and View Load Record", async ({ page }) => {
   test.setTimeout(120000);
 
-  const environment = "staging";
+  const environment = "prod";
   let url;
 
   if (environment == "staging") {
-    url =
-      "https://staging.golive.settyl.com/operationalplanning/loadsmanagement/";
+    url = "https://staging.golive.settyl.com/operationalplanning/ltl/";
   } else if (environment == "prod") {
-    url = "https://golive.settyl.com/operationalplanning/loadsmanagement/";
+    url = "https://golive.settyl.com/operationalplanning/ltl/";
   } else {
-    url = "http://localhost:3000/operationalplanning/loadsmanagement/";
+    url = "http://localhost:3000/operationalplanning/ltl/";
   }
 
   // Navigate to the website
@@ -33,11 +32,9 @@ test("Create, Edit, and View Load Record", async ({ page }) => {
   // Submit the login form
   await page.click('button:has-text("Sign In")');
 
-  await createActions(page, false, environment);
-  await editActions(page, false, environment);
-  await viewDetailsActions(page, false, environment);
-
-  //Next Cases
+  await createActions(page, "ltl", environment);
+  await editActions(page, "ltl", environment);
+  await viewDetailsActions(page, "ltl", environment);
 
   await page.pause();
 

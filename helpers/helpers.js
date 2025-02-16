@@ -21,8 +21,8 @@ export const selectValueFromDropdown = async (
   }
 };
 
-export const waitForSelectorAndClick = async (page, selector) => {
-  await page.waitForSelector(selector);
+export const waitForSelectorAndClick = async (page, selector, options = {}) => {
+  await page.waitForSelector(selector, options);
   await page.locator(selector).click();
 };
 

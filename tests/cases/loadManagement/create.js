@@ -3,13 +3,16 @@ import {
   waitForSelectorAndClick,
 } from "../../../helpers/helpers";
 
-export const createActions = async (page) => {
+export const createActions = async (page, module, environment) => {
   // Click on "Create Load" button
-  await waitForSelectorAndClick(page, "text=Create Load");
+  const createBtnSelector =
+    module != "ltl" ? "text=Create Load" : "text=Create LTL";
+  await waitForSelectorAndClick(page, createBtnSelector);
 
   await waitForSelectorAndClick(page, "text=Next");
 
-  await waitForSelectorAndClick(page, "text=Next");
+  environment == "staging" &&
+    (await waitForSelectorAndClick(page, "text=Next"));
 
   await selectValueFromDropdown(
     page,
