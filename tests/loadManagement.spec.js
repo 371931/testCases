@@ -27,6 +27,8 @@ test("Create, Edit, and View Load Record", async ({ page }) => {
   await editActions(page);
   await viewDetailsActions(page);
 
+  //Next Cases
+
   await page.pause();
 
   await page.close();
