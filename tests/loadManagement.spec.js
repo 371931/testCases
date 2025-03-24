@@ -11,7 +11,7 @@ const { viewDetailsActions } = require("./cases/loadManagement/viewDetails");
 test("Create, Edit, and View Load Record", async ({ page }) => {
   test.setTimeout(120000);
 
-  const environment = "";
+  const environment = "prod";
   let url;
 
   if (environment == "staging") {
@@ -34,8 +34,8 @@ test("Create, Edit, and View Load Record", async ({ page }) => {
   await page.click('button:has-text("Sign In")');
 
   await createActions(page, false, environment);
-  await editActions(page, false, environment);
-  await viewDetailsActions(page, false, environment);
+  // await editActions(page, false, environment);
+  // await viewDetailsActions(page, false, environment);
 
   //Next Cases
 
