@@ -11,7 +11,7 @@ const { viewDetailsActions } = require("./cases/loadManagement/viewDetails");
 test("Create, Edit, and View Load Record", async ({ page }) => {
   test.setTimeout(120000);
 
-  const environment = "staging";
+  const environment = "";
   let url;
 
   if (environment == "staging") {
